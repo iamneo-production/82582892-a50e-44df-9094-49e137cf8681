@@ -24,7 +24,3 @@ namespace WebApp
                 });
     }
 }
-
-
-/*demo*/
-/*Sample for ishu*/
