@@ -28,8 +28,8 @@ namespace Academy_Backend
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            var Academy_Con = "Data Source=PARTHA-PC\\SQLEXPRESS;Initial Catalog=Academy_Backend;Integrated Security=True";
-            services.AddDbContext<Academy_BackendContext>(o => o.UseSqlServer(Academy_Con));
+            var Con= "Server=0.0.0.0;Data Source=.;User id=sa;Password=examlyMssql@123;Initial Catalog=Academy_Backend;";
+            services.AddDbContext<Academy_BackendContext>(o => o.UseSqlServer(Con));
 
             services.AddCors();
             services.AddControllers();
@@ -43,7 +43,7 @@ namespace Academy_Backend
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             app.UseCors(options =>
-                options.WithOrigins("http://localhost:3000").AllowAnyMethod().AllowAnyHeader());
+                options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
